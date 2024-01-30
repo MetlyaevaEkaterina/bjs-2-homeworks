@@ -17,14 +17,14 @@ Student.prototype.addMarks = function (...marksToAdd) {
 }
 
 Student.prototype.getAverage = function () {
-    if (!this.hasOwnProperty("marks") || marks.length === 0) {
+    if (!this.hasOwnProperty("marks") || this.marks.length === 0) {
         return 0;
     }
     let sum = 0;
-    for (let i = 0; i < marks.length; i++) {
+    for (let i = 0; i < this.marks.length; i++) {
         sum = sum + this.marks[i];
     }
-    return sum / marks.length;
+    return sum / this.marks.length;
 }
 
 Student.prototype.exclude = function (reason) {
@@ -33,6 +33,3 @@ Student.prototype.exclude = function (reason) {
 
   this.excluded = reason;
 }
-
-let student1 = new Student("Василиса", "женский", 19);
-let student2 = new Student("Артём", "мужской", 25);
