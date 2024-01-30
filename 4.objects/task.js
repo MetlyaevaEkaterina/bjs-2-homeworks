@@ -24,7 +24,7 @@ Student.prototype.getAverage = function () {
     for (let i = 0; i < marks.length; i++) {
         this.sum = this.sum + this.marks[i];
     }
-    return this.sum / this.marks.length;
+    return this.sum / marks.length;
 }
 
 Student.prototype.exclude = function (reason) {
