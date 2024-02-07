@@ -63,15 +63,15 @@ class PrintEditionItem {
   }
   }
   
-  class library {
+  class Library {
     constructor (name, books = []){
       this.name = name;
       this.books = books;
     }
     
     addBook(book) {
-      if (state > 30) {
-        this.books.push(book);
+      if (this.state > 30) {
+        return this.books.push(book);
       }
     }
     
