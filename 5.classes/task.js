@@ -64,14 +64,14 @@ class PrintEditionItem {
   }
   
   class Library {
-    constructor (name, books = []){
+    constructor (name, books){
       this.name = name;
-      this.books = books;
+      this.books = [];
     }
     
     addBook(book) {
-      if (this.state > 30) {
-        return this.books.push(book);
+      if (book.state > 30) {
+        this.books.push(book);
       }
     }
     
@@ -87,9 +87,8 @@ class PrintEditionItem {
     giveBookByName(bookName) {
       for (let i = 0; i < this.books.length; i++) {
         if (this.books[i].name === bookName) {
-          let book = this.books[i];
           this.books.splice(i, 1);
-          return book;
+          return this.books[i];
         }
       }
     }
