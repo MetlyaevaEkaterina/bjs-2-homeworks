@@ -1,6 +1,6 @@
 class PrintEditionItem {
     constructor (name, releaseDate, pagesCount, state = 100, type = null) {
-        this.NamedNodeMap = name;
+        this.name = name;
         this.releaseDate = releaseDate;
         this.pagesCount = pagesCount;
         this.state = state;
@@ -27,9 +27,9 @@ class PrintEditionItem {
   }
   
   class Magazine extends PrintEditionItem {
-  constructor (name, releaseDate, pagesCount, state, type = 'magazine') {
+  constructor (name, releaseDate, pagesCount, state) {
     super(name, releaseDate, pagesCount, state);
-    this.type = type;
+    this.type = 'magazine';
   }
   }
   
