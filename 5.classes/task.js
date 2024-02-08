@@ -11,18 +11,18 @@ class PrintEditionItem {
       this.state *= 1.5;
     }
   
-    set newState(state) { // как вписать fix() или this.state?? -- не дает такой аргумент -- надо чтоб принимал от функции fix
-      if (state < 0){
-        this._newState = 0;
-      } if (state > 100) {
-        this._newState = 100;
+    set state (newState) { // как вписать fix() или this.state?? -- не дает такой аргумент -- надо чтоб принимал от функции fix
+      if (newState < 0){
+        this._state = 0;
+      } if (newState > 100) {
+        this._state = 100;
       } else {
-        this._newState = state;
+        this._state = newState;
       }
     }
 
-    get newState() {
-      return this._newState;
+    get state () {
+      return this._state;
     }
   }
   
