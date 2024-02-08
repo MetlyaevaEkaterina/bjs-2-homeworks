@@ -1,14 +1,14 @@
 class PrintEditionItem {
-    constructor (name, releaseDate, pagesCount, state = 100, type = null) {
+    constructor (name, releaseDate, pagesCount) {
         this.name = name;
         this.releaseDate = releaseDate;
         this.pagesCount = pagesCount;
-        this.state = state;
-        this.type = type;
+        this.state = 100;
+        this.type = null;
     }
   
     fix() {
-      return this.state *= 1.5;
+      this.state *= 1.5;
     }
   
     set newState(state) { // как вписать fix() или this.state?? -- не дает такой аргумент -- надо чтоб принимал от функции fix
