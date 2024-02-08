@@ -11,7 +11,7 @@ class PrintEditionItem {
       this.state *= 1.5;
     }
   
-    set state (newState) { // как вписать fix() или this.state?? -- не дает такой аргумент -- надо чтоб принимал от функции fix
+    set state (newState) { 
       if (newState < 0){
         this._state = 0;
       } if (newState > 100) {
@@ -85,9 +85,9 @@ class PrintEditionItem {
     
     giveBookByName(bookName) {
       for (let i = 0; i < this.books.length; i++) {
-        if (this.books[i][name] === bookName) {
-          this.books.splice(i, 1);
-          return this.books[i];
+        if (this.books[i].name === bookName) {
+          return this.books.splice(i, 1);
+          // return this.books[i]; // надо возвращать удаленный элемент, в books архиве его уже нет??
         }
       }
     }
