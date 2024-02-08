@@ -8,19 +8,18 @@ class PrintEditionItem {
     }
   
     fix() {
-      let fixState = this.state * 1.5;
-      return fixState;
+      return this.state *= 1.5;
     }
   
-    set newState(fixState) {
-      if (fixState < 0){
+    set newState(state) { // как вписать fix() или this.state?? -- не дает такой аргумент
+      if (state < 0){
         this.state === 0;
-      } if (fixState > 100) {
+      } if (state > 100) {
         this.state === 100;
       } else {
         this.state = fixState;
       }
-        this.newState = fixState;
+        this.newState = state;
     }
 
     get newState() {
