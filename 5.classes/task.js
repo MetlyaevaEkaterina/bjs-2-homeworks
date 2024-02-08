@@ -13,17 +13,16 @@ class PrintEditionItem {
   
     set newState(state) { // как вписать fix() или this.state?? -- не дает такой аргумент -- надо чтоб принимал от функции fix
       if (state < 0){
-        this.state === 0;
+        this._newState = 0;
       } if (state > 100) {
-        this.state === 100;
+        this._newState = 100;
       } else {
-        this.state = state;
+        this._newState = state;
       }
-        this.newState = state;
     }
 
     get newState() {
-      return this.newState;
+      return this._newState;
     }
   }
   
