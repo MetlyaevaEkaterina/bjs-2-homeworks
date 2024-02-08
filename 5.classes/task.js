@@ -19,11 +19,11 @@ class PrintEditionItem {
       } else {
         this.state = state;
       }
-        this._newState = state;
+        this.newState = state;
     }
 
     get newState() {
-      return this._newState;
+      return this.newState;
     }
   }
   
