@@ -13,7 +13,7 @@ class PrintEditionItem {
     }
   
     set newState(fixState) {
-      if (fixState > 100){
+      if (fixState < 0){
         this.state === 0;
       } if (fixState > 100) {
         this.state === 100;
@@ -22,9 +22,9 @@ class PrintEditionItem {
       }
         this.newState = fixState;
     }
-    
+
     get newState() {
-        return this.newState;
+      return this.newState;
     }
   }
   
