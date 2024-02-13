@@ -19,18 +19,18 @@ class Triangle {
         this.a = a;
         this.b = b;
         this.c = c;
-        if (this.a + this.b != this.c) {
+        if (this.a + this.b < this.c || this.a + this.c < this.b || this.c + this.b < this.a) {
             throw new Error("Треугольник с такими сторонами не существует");
         } 
     }
 
     get perimeter() {
-        return this._a + this._b + this._c;
+        return this.a + this.b + this.c;
     }
 
     get area() {
         let p = this.perimeter() / 2;
-        let S = Math.sqrt(p * (p - this._a) * (p - this._b) * (p - this._c));
+        let S = Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
         return Number(S.toFixed(3));
     }
 }
