@@ -19,7 +19,7 @@ class Triangle {
         this.a = a;
         this.b = b;
         this.c = c;
-        if (this.a + this.b < this.c || this.a + this.c < this.b || this.c + this.b < this.a) {
+        if (this.a + this.b <= this.c || this.a + this.c <= this.b || this.c + this.b <= this.a) {
             throw new Error("Треугольник с такими сторонами не существует");
         } 
     }
@@ -43,5 +43,3 @@ function getTriangle(a, b, c) {
             get perimeter() {return "Ошибка! Треугольник не существует"},
             get area() {return "Ошибка! Треугольник не существует"}
     }
-
-}
