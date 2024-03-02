@@ -17,7 +17,7 @@ class AlarmClock {
     }
 
     removeClock (time) {
-        this.alarmCollection.filter((time) => this.time === time); // если не работает нужно добавить splice
+        this.alarmCollection.splice(this.alarmCollection.filter((time) => this.time === time), 1); 
     }
 
     getCurrentFormattedTime () {
