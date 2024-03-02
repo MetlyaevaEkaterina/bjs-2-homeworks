@@ -8,18 +8,16 @@ class AlarmClock {
         if (!time || !callback) {
             throw new Error('Отсутствуют обязательные аргументы');
         } 
-  
+
         if (this.alarmCollection.includes((time) => this.time === time)) {
             console.warn('Уже присутствует звонок на это же время');
-            return;
         }
 
         this.alarmCollection.push({callback, time, canCall: true});
     }
 
     removeClock (time) {
-        let index = this.alarmCollection.filter((time) => this.time === time);
-        this.alarmCollection.splice(index, 1);
+        this.alarmCollection.filter((time) => this.time === time); // если не работает нужно добавить splice
     }
 
     getCurrentFormattedTime () {
