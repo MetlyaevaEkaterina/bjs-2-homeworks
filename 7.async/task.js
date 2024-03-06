@@ -11,45 +11,42 @@ class AlarmClock {
 
         if (this.alarmCollection.find(item => item.time === time)) {
             console.warn('Уже присутствует звонок на это же время');
-            return;
         }
 
         this.alarmCollection.push({callback, time, canCall: true});
     }
 
     removeClock (time) {
-        let index = this.alarmCollection.findIndex(item => item.time === time);
-        if (index === -1) {
-            return false;
-        }
-        this.alarmCollection.splice(index, 1);
-        return true;
+        this.alarmCollection = this.alarmCollection.filter(item => item.time !== time);
     }
 
     getCurrentFormattedTime () {
         this.currentDate = new Date();
+        new Date().toLocaleTimeString("ru-Ru", {
+            hour: "2-digit",
+            minute: "2-digit",
+        });
         return (this.currentDate.getHours() + ":" + this.currentDate.getMinutes())
     }
 
     start () {
-        let checkClock = (alarm) => {
-            if (alarm.time === getCurrentFormattedTime()) {
-              alarm.callback();
-              alarm.canCall = false;
-            }
-          }
-          if (this.timerId === null) {
-            this.timerId = setInterval(() => {
-              this.alarmCollection.forEach(alarm => checkClock(alarm));
-            }, 1000);
-          }
+        if (this.intervalId !== null) {
+            return;
+        } 
+
+        this.intervalId = setInterval(() => {
+            this.alarmCollection.forEach((alarm) => {
+                if (alarm.time === this.getCurrentFormattedTime() && alarm.canCall) {
+                alarm.callback();
+                alarm.canCall = false;
+                }
+            })
+        }, 1000);
     }
 
     stop () {
-        if (this.timerId !== null) {
-            clearInterval(this.timerId);
-            this.timerId = null;
-          }
+        clearInterval(this.intervalId);
+        this.intervalId = null;
     }
 
     resetAllCalls() {
